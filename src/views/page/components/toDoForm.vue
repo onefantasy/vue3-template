@@ -10,27 +10,31 @@
       <n-icon size="25" class="mr-1" :class="iconColor">
         <SvgIcon :icon-class="form.id === 0 ? 'task-add' : 'task-view'" class="align-baseline" />
       </n-icon>
-      <span> Task </span>
+      <span> {{ $t('page.task') }} </span>
     </template>
 
     <n-form ref="task" :model="form" :rules="rules" label-placement="left" label-width="auto">
       <!-- title -->
-      <n-form-item path="title" label="Task Title" :first="true">
-        <n-input v-model:value="form.title" placeholder="Task Title" :disabled="!isEditable" />
+      <n-form-item path="title" :label="$t('page.taskTitle')" :first="true">
+        <n-input
+          v-model:value="form.title"
+          :placeholder="$t('page.taskTitle')"
+          :disabled="!isEditable"
+        />
       </n-form-item>
 
       <!-- content -->
-      <n-form-item path="content" label="Task Content" :first="true">
+      <n-form-item path="content" :label="$t('page.taskContent')" :first="true">
         <n-input
           v-model:value="form.content"
-          placeholder="Task Content"
+          :placeholder="$t('page.taskContent')"
           type="textarea"
           :disabled="!isEditable"
         />
       </n-form-item>
 
       <!-- plan start time -->
-      <n-form-item path="planStartTime" label="Plan Start" :first="true">
+      <n-form-item path="planStartTime" :label="$t('page.taskPlanStartTime')" :first="true">
         <n-date-picker
           v-model:value="form.planStartTime"
           type="datetime"
@@ -40,7 +44,7 @@
       </n-form-item>
 
       <!-- plan end time -->
-      <n-form-item path="planEndTime" label="Plan End" :first="true">
+      <n-form-item path="planEndTime" :label="$t('page.taskPlanEndTime')" :first="true">
         <n-date-picker
           v-model:value="form.planEndTime"
           type="datetime"
@@ -50,24 +54,26 @@
       </n-form-item>
 
       <!-- create time -->
-      <n-form-item v-show="!isNew" path="createTime" label="Create Time">
+      <n-form-item v-show="!isNew" path="createTime" :label="$t('page.taskCreatedTime')">
         <n-input :value="form.createdTime" disabled />
       </n-form-item>
 
       <!-- actual start time -->
-      <n-form-item v-show="!isNew" path="actualStartTime" label="Actual Start">
+      <n-form-item v-show="!isNew" path="actualStartTime" :label="$t('page.taskActualStartTime')">
         <n-input :value="form.actualStartTime" disabled placeholder="" />
       </n-form-item>
 
       <!-- actual end time -->
-      <n-form-item v-show="!isNew" path="actualEndTime" label="Actual End">
+      <n-form-item v-show="!isNew" path="actualEndTime" :label="$t('page.taskActualEndTime')">
         <n-input :value="form.actualEndTime" disabled placeholder="" />
       </n-form-item>
     </n-form>
 
     <template #action>
-      <n-button @click="handleCancel"> Cancel </n-button>
-      <n-button type="primary" @click="handleConfirm"> Confirm </n-button>
+      <n-button @click="handleCancel"> {{ $t('currency.cancelButton') }} </n-button>
+      <n-button type="primary" @click="handleConfirm">
+        {{ $t('currency.confirmButton') }}
+      </n-button>
     </template>
   </n-modal>
 </template>
@@ -76,8 +82,10 @@
   import type { toDoListItemType } from '@/views/page/components/types'
   import { taskStatusEnum } from './enums'
   import { ref, reactive, computed } from 'vue'
+  import { useI18n } from 'vue-i18n'
 
   const emits = defineEmits(['addNewTask'])
+  const { t } = useI18n()
 
   // form
   const formDto: toDoListItemType = {
@@ -106,13 +114,27 @@
   // form data origin backup
   let targetBackup: toDoListItemType | null
   const rules = computed(() => ({
-    title: [{ required: true, message: 'Title not be empty !', trigger: 'blur' }],
-    content: [{ required: true, message: 'Content not be empty !', trigger: 'blur' }],
+    title: [
+      { required: true, message: t('page.taskTitle') + t('page.tipNotEmpty'), trigger: 'blur' }
+    ],
+    content: [
+      { required: true, message: t('page.taskContent') + t('page.tipNotEmpty'), trigger: 'blur' }
+    ],
     planStartTime: [
-      { type: 'number', required: true, message: 'Start time not be empty !', trigger: 'blur' }
+      {
+        type: 'number',
+        required: true,
+        message: t('page.taskPlanStartTime') + t('page.tipNotEmpty'),
+        trigger: 'blur'
+      }
     ],
     planEndTime: [
-      { type: 'number', required: true, message: 'End time not be empty !', trigger: 'blur' }
+      {
+        type: 'number',
+        required: true,
+        message: t('page.taskPlanEndTime') + t('page.tipNotEmpty'),
+        trigger: 'blur'
+      }
     ]
   }))
 

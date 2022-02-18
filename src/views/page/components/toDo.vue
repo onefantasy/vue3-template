@@ -204,7 +204,7 @@
     for (let i = 0, len = listData.length; i < len; i++) {
       setTimeout((): void => {
         listData[i].show = true
-      }, i * 1000 + 500)
+      }, i * 500 + 2000)
     }
   })
 </script>

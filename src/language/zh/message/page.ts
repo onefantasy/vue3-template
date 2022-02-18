@@ -11,5 +11,14 @@ export default {
   taskNumber: '个任务',
   start: '开始',
   deleteWarn: '确定删除该项任务',
-  moveToPending: '移到待处理'
+  moveToPending: '移到待处理',
+  task: '任务',
+  taskTitle: '任务主题',
+  taskContent: '任务内容',
+  taskPlanStartTime: '计划开始',
+  taskPlanEndTime: '计划结束',
+  taskCreatedTime: '创建时间',
+  taskActualStartTime: '实际开始',
+  taskActualEndTime: '实际结束',
+  tipNotEmpty: '不允许为空 !'
 }

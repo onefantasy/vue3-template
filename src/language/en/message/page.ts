@@ -11,5 +11,14 @@ export default {
   taskNumber: 'tasks',
   start: 'Start',
   deleteWarn: 'Are you sure to delete this task',
-  moveToPending: 'Move to pending'
+  moveToPending: 'Move to pending',
+  task: 'Task',
+  taskTitle: 'Task Title',
+  taskContent: 'Task Content',
+  taskPlanStartTime: 'Plan Start',
+  taskPlanEndTime: 'Plan End',
+  taskCreatedTime: 'Create Time',
+  taskActualStartTime: 'Actual Start',
+  taskActualEndTime: 'Actual End',
+  tipNotEmpty: ' not be empty !'
 }
