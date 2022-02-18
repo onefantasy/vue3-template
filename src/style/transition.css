@@ -13,7 +13,6 @@
   height: 100vh;
 }
 
-/* .app-enter-from, */
 .app-leave-to {
   transform: translateX(-100%);
   width: 100vw;
@@ -59,3 +58,19 @@
 }
 
 /* 账号登录、注册页面切换 结束 */
+
+/* max-width change animation start */
+.max-width-enter-active,
+.max-width-leave-active {
+  transition: all 0.5s ease;
+  opacity: 1;
+  max-width: 4000px;
+}
+
+.max-width-enter-from,
+.max-width-leave-to {
+  opacity: 0;
+  max-width: 0;
+}
+
+/* max-width change animation end */

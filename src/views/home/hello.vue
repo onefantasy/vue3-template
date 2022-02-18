@@ -6,7 +6,7 @@
     <!-- 留言 -->
     <div class="absolute top-0 bottom-0 left-0 right-0 flex flex-col">
       <!-- 留言功能 -->
-      <div class="flex justify-between mt-6 mb-2 px-9">
+      <div class="flex justify-between px-3 mt-6 mb-2">
         <n-input
           v-model:value="leaveMsg"
           :placeholder="$t('home.leaveMsgPlaceholder')"
@@ -76,8 +76,8 @@
     msgs.push({
       user: '李白',
       content:
-        '君不见黄河之水天上来②，奔流到海不复回。君不见高堂明镜悲白发③，朝如青丝暮成雪④。人生得意须尽欢⑤，莫使金樽空对月⑥。天生我材必有用⑦，千金散尽还复来⑧。烹羊宰牛且为乐，会须一饮三百杯⑨。岑夫子⑩，丹丘生⑪，将进酒，杯莫停⑫。与君歌一曲⑬，请君为我倾耳听⑭。钟鼓馔玉不足贵⑮，但愿长醉不复醒⑯。古来圣贤皆寂寞⑰，惟有饮者留其名。陈王昔时宴平乐⑱，斗酒十千恣欢谑⑲。主人何为言少钱⑳，径须沽取对君酌㉑。五花马㉒、千金裘㉓，呼儿将出换美酒㉔，与尔同销万古愁㉕。',
-      time: '天宝三载（744年）'
+        '君不见黄河之水天上来②, 奔流到海不复回。君不见高堂明镜悲白发③, 朝如青丝暮成雪④。人生得意须尽欢⑤, 莫使金樽空对月⑥。天生我材必有用⑦, 千金散尽还复来⑧。烹羊宰牛且为乐, 会须一饮三百杯⑨。岑夫子⑩, 丹丘生⑪, 将进酒, 杯莫停⑫。与君歌一曲⑬, 请君为我倾耳听⑭。钟鼓馔玉不足贵⑮, 但愿长醉不复醒⑯。古来圣贤皆寂寞⑰, 惟有饮者留其名。陈王昔时宴平乐⑱, 斗酒十千恣欢谑⑲。主人何为言少钱⑳, 径须沽取对君酌㉑。五花马㉒、千金裘㉓, 呼儿将出换美酒㉔, 与尔同销万古愁㉕。',
+      time: '天宝三载(744年)'
     })
     msgs.push({
       user: 'Shakespeare',
@@ -119,7 +119,15 @@
 <style lang="scss" scoped>
   @keyframes card-show {
     20% {
-      max-width: 10%;
+      max-width: 20px;
+      max-height: 20px;
+    }
+    30% {
+      max-width: 30px;
+      max-height: 30px;
+    }
+    99% {
+      max-width: 100%;
       max-height: 300px;
     }
     to {

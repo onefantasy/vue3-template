@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted, defineEmits } from 'vue'
+  import { ref, onMounted } from 'vue'
 
   const eimts = defineEmits(['wordDisappear'])
 
@@ -108,7 +108,7 @@
       }
       @for $item from 1 through 10 {
         span:nth-of-type(#{$item}) {
-          animation-delay: #{((1 + $item/10))}s;
+          animation-delay: #{((1 + calc($item/10)))}s;
         }
       }
     }
@@ -154,7 +154,6 @@
     overflow: hidden;
     div {
       transform: translateY(100%);
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       letter-spacing: -40px;
       animation: welcome-show 1s ease forwards;
       animation-delay: 0.5s;

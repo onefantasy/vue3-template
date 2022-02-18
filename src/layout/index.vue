@@ -11,6 +11,7 @@
         :collapsed-width="0"
         show-trigger="bar"
         :collapsed="showSider"
+        class="z-20"
         :class="{ 'bar-inner': !showSider }"
         :position="appStore.isMobile ? 'absolute' : 'static'"
         @update:collapsed="hanldeUpdateCollapsed"

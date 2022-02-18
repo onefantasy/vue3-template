@@ -2,6 +2,6 @@
 export default {
   home: 'Home',
   homeWelcome: 'Welcome',
-  page: 'page',
+  page: 'Page',
   404: '404'
 }
